@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback | RealHome</title>
+    <style>
+        body {
+            background-image: url("images/condo_balconies.jpg");
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+        .input-box {
+            margin-bottom: 20px;
+        }
+        .input-box label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .input-box input,
+        .input-box textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: rebeccapurple;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Leave Your Feedback</h1>
+    <form id="feedbackForm">
+        <div class="input-box">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="input-box">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Your email" required>
+        </div>
+        <div class="input-box">
+            <label for="feedback">Your Feedback</label>
+            <textarea id="feedback" name="feedback" rows="5" placeholder="Share your thoughts with us" required></textarea>
+        </div>
+        <button type="submit">Submit Feedback</button>
+    </form>
+    
+    <script>
+        // main.js
+
+        document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Create feedback object
+            let feedback = {
+               name: document.getElementById('name').value,
+               email: document.getElementById('email').value,
+               feedback: document.getElementById('feedback').value
+            };
+
+            // Open or create IndexedDB
+            let request = indexedDB.open('feedbackDB', 1);
+
+            request.onerror = function() {
+               console.log('Database failed to open');
+            };
+
+            request.onsuccess = function() {
+               console.log('Database opened successfully');
+               let db = request.result;
+               let transaction = db.transaction(['feedbacks'], 'readwrite');
+               let store = transaction.objectStore('feedbacks');
+               store.add(feedback);
+            };
+
+            request.onupgradeneeded = function(e) {
+               let db = e.target.result;
+               db.createObjectStore('feedbacks', { keyPath: 'id', autoIncrement: true });
+               console.log('Database setup complete');
+            };
+
+            // Clear form after submission
+            document.getElementById('feedbackForm').reset();
+            alert('Thank you for your feedback!');
+        });
+
+    </script>
+</body>
+</html>

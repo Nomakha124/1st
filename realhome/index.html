@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RealHome - Home</title>
+    <link rel="shortcut" href="favicon.icon" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"> 
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="">
+        </div>
+            <ul class="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="property-listings.html">Listings</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        
+    </header>
+    <div class="col-md-6 animated fadeIn">
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="carousel-item">
+                    <img class="img-fluid" src="images/house1.jpg" alt="House 1">
+                </div>
+                <div class="carousel-item">
+                    <img class="img-fluid" src="images/house2.jpeg" alt="House 2">
+                </div>
+                <div class="carousel-item">
+                    <img class="img-fluid" src="images/house3.jpeg" alt="House 3">
+                </div>
+            </div>
+            <div class="arrow-left" onclick="prevImage()">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+            <div class="arrow-right" onclick="nextImage()">
+                <i class="fas fa-arrow-right"></i>
+            </div>
+        </div>
+        <div class="home">
+            <section class="center">
+                <form action="property-listings.html" method="post">
+                    <div class="box">
+                        <label for="location">Location:</label>
+                        <input type="text" id="location" name="location" required maxlength="50" placeholder="Enter city or area" class="input">
+                    </div>
+                    <div class="flex">
+                        <div class="box">
+                            <label for="Property Type">Property Type:</label>
+                            <select name="type" class="input">
+                                <option value="Office Space">Office Space</option>
+                                <option value="House">House</option>
+                                <option value="Apartment">Apartment</option>
+                                <option value="Condo">Condo</option>
+                                <option value="Land Plot">Land Plot</option>
+                                <option value="Modern Luxury">Modern Luxury</option>
+                                <option value="detached house">detached house</option>
+                                <option value="Commercial">Commercial</option>
+                            </select>         
+                        </div>
+                        <div class="box">
+                            <label for="Min Price">Min Price:</label>
+                            <select name="Min Price" class="input">
+                                <option value="100,000">100,000</option>
+                                <option value="250,000">250,000</option>
+                                <option value="300,000">300,000</option>
+                                <option value="600,000">600,000</option>
+                            </select>         
+                        </div>
+                        <div class="box">
+                            <label for="Max Price">Max Price:</label>
+                            <select name="Max Price" class="input">
+                                <option value="R1,500,230">R1,500,230</option>
+                                <option value="R2,9085,000">R2,9085,000</option>
+                                <option value="R3,000,000">R3,000,000</option>
+                                <option value="R4,897,237">R4,897,237</option>
+                            </select>         
+                        </div>
+                    </div>
+                    <input type="submit" value="search property" name="search" class="btn">
+                </form>
+            </section>
+           </div>
+        </div>
+
+        <section class="property-listings">
+            <h2>How can we help you?</h2>
+            <div class="property-cards">
+                <div class="property-card">
+                    <img src="images/condo_balconies.jpg" alt="Property Image">
+                    <div class="property-info">
+                        <span class="badge">Just Listed</span>
+                        <h3>725 NE 166th St, Miami, FL 33162, USA</h3>
+                        <p>$1,500.00</p>
+                        <p>3 beds, 2 baths</p>
+                    </div>
+                </div>
+                <div class="property-card">
+                    <img src="images/townhouse.jpg" alt="Property Image">
+                    <div class="property-info">
+                        <span class="badge">Just Listed</span>
+                        <h3>261 SW 8th St, Miami, FL 33130, USA</h3>
+                        <p>$220,000.00</p>
+                        <p>5 beds, 2 baths</p>
+                    </div>
+                </div>
+                <div class="property-card">
+                    <img src="images/trends/Luxury_Trends-1554900758-1554900866.jpg" alt="Property Image">
+                    <div class="property-info">
+                        <span class="badge featured">Featured</span>
+                        <span class="badge">Just Listed</span>
+                        <h3>1551 West Ave, Miami Beach, FL 33139, USA</h3>
+                        <p>$459,000.00</p>
+                        <p>3 beds, 2 baths</p>
+                    </div>
+                </div>
+                <!-- Add more property cards as needed -->
+            </div>
+            <section class="whats-happening">
+                <h2>What's happening</h2>
+                <div class="cards-container">
+                    <div class="card">
+                        <img src="images/family1.jpeg" alt="Exploring our Neighborhoods">
+                        <div class="card-content">
+                            <h3>Exploring our Neighborhoods: Cape Town's Best Locations</h3>
+                            <p class="date">08 Jul 2024</p>
+                            <p>Explore the prime locations of Invitation Homes properties in Cape Town. Discover the unique benefits of living in Century City, Burgundy Estate, Brackenfell, and more.</p>
+                            <a href="#">READ MORE</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="images/family2.jpeg" alt="Safety and Security">
+                        <div class="card-content">
+                            <h3>Safety and Security in Rental Properties</h3>
+                            <p class="date">08 Jul 2024</p>
+                            <p>Invitation Homes prioritizes your safety with advanced security features. Learn about our high-tech systems, round-the-clock monitoring, secure access points, and more.</p>
+                            <a href="#">READ MORE</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="images/family3.jpeg" alt="Modern Living">
+                        <div class="card-content">
+                            <h3>Modern Living: The Benefits of Spacious, Contemporary Homes</h3>
+                            <p class="date">08 Jul 2024</p>
+                            <p>Discover the advantages of living in a modern, spacious home with Invitation Homes. Learn how our thoughtfully designed properties feature aesthetic and functional elements.</p>
+                            <a href="#">READ MORE</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+    <section class="help-section" id="help-section">
+        <div class="container">
+            <h2 class="section-title">See how we can help</h2>
+            <ul class="help-list">
+                <li class="help-item">
+                    <div class="help-card">
+                        <img src="images/Assets_home-buy.svg" alt="Buy a Property">
+                        <h3 class="help-title">Buy a Property</h3>
+                        <p class="help-text">
+                            With thousands of properties for sale on our site, we can help you find your space.
+                        </p>
+                        <a href="#" class="help-link">Search properties</a>
+                    </div>
+                </li>
+                <li class="help-item">
+                    <div class="help-card">
+                        <img src="images/Assets_home-rent.svg" alt="Rent a Property">
+                        <h3 class="help-title">Rent a Property</h3>
+                        <p class="help-text">
+                            Find a rental space that you'll love or advertise your rental property on our site.
+                        </p>
+                        <a href="#" class="help-link">Search rentals</a>
+                    </div>
+                </li>
+                <li class="help-item">
+                    <div class="help-card">
+                        <img src="images/Assets_home-sell.svg" alt="Sell a Property">
+                        <h3 class="help-title">Sell a Property</h3>
+                        <p class="help-text">
+                            Advertise with us and have your property seen by millions of people.
+                        </p>
+                        <a href="#" class="help-link">Get started</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section business-info">
+                <h3>Business Info</h3>
+                <p><strong>Brand Name:</strong> RealHome</p>
+                <p><strong>Address:</strong> 123 Main St, Anytown, USA</p>
+                <p><strong>Call Us:</strong> (123) 456-7890</p>
+                <p><strong>Working Hours:</strong> Mon-Fri 9:00 AM - 6:00 PM</p>
+            </div>
+            <div class="footer-section subscribe">
+                <h3>Subscribe</h3>
+                <form id="subscribeForm">
+                    <input type="email" placeholder="Enter your email">
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+            <div class="footer-section follow">
+                <h3>Follow Us</h3>
+                <ul class="social-media">
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+            <div class="footer-section map">
+                <h3>Our Location</h3>
+                <div id="map">
+                    <!-- Embed Google Maps iframe -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.5234084892534!2d-122.41941548468176!3d37.77492977975865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858064cbaaec73%3A0x2e4312f09d609764!2s123%20Main%20St%2C%20San%20Francisco%2C%20CA%2094103%2C%20USA!5e0!3m2!1sen!2sus!4v1651503299150!5m2!1sen!2sus" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+            <div class="footer-section feedback">
+                <h3>Feedback</h3>
+                <a href="feedback.html">Leave Feedback</a>
+            </div>
+        <p>&copy; 2024 RealHome. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="./js/main.js"></script>
+    <script>
+        // server.js
+        const express = require('express');
+        const mongoose = require('mongoose');
+        const bodyParser = require('body-parser');
+        const cors = require('cors');
+        require('dotenv').config();
+
+        const app = express();
+
+        // Middleware
+        app.use(bodyParser.json());
+        app.use(cors());
+
+        // Connect to MongoDB
+        mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+        .then(() => console.log('MongoDB connected'))
+        .catch((err) => console.error('MongoDB connection error:', err));
+
+        // Routes
+        app.get('/', (req, res) => {
+          res.send('Welcome to RealHome API');
+        });
+
+        // Listen on a port
+        const PORT = process.env.PORT || 5000;
+        app.listen(PORT, () => {
+          console.log(`Server running on port ${PORT}`);
+        });
+
+
+        const mongoose = require('mongoose');
+
+        const PropertySchema = new mongoose.Schema({
+            title: { type: String, required: true },
+            location: { type: String, required: true },
+            type: { type: String, required: true },
+            price: { type: Number, required: true },
+            image: { type: String, required: true },
+            bedrooms: { type: Number, required: true },
+            bathrooms: { type: Number, required: true },
+            description: { type: String }
+        });
+
+        module.exports = mongoose.model('Property', PropertySchema);
+
+
+        const mongoose = require('mongoose');
+
+        const UserSchema = new mongoose.Schema({
+           name: { type: String, required: true },
+           email: { type: String, required: true, unique: true },
+           password: { type: String, required: true },
+           role: { type: String, default: 'user' }
+        });
+
+        module.exports = mongoose.model('User', UserSchema);
+
+
+        const express = require('express');
+        const Property = require('../models/Property');
+
+        // Get all properties
+        router.get('/', async (req, res) => {
+          try {
+             const properties = await Property.find();
+             res.json(properties);
+            } catch (err) {
+                res.status(500).json({ message: err.message });
+            }
+        });
+
+        // Add a new property
+        router.post('/', async (req, res) => {
+           const property = new Property({
+               title: req.body.title,
+               location: req.body.location,
+               type: req.body.type,
+               price: req.body.price,
+               image: req.body.image,
+               bedrooms: req.body.bedrooms,
+               bathrooms: req.body.bathrooms,
+               description: req.body.description
+            });
+
+        try {
+            const newProperty = await property.save();
+            res.status(201).json(newProperty);
+        } catch (err) {
+           res.status(400).json({ message: err.message });
+        }
+        });
+
+        module.exports = router;
+
+
+        const express = require('express');
+        const User = require('../models/User');
+        const bcrypt = require('bcrypt');
+        const router = express.Router();
+
+        // Register a new user
+        router.post('/register', async (req, res) => {
+           try {
+              const hashedPassword = await bcrypt.hash(req.body.password, 10);
+              const user = new User({
+                  name: req.body.name,
+                  email: req.body.email,
+                  password: hashedPassword
+                });
+
+              const newUser = await user.save();
+              res.status(201).json(newUser);
+            } catch (err) {
+                 res.status(400).json({ message: err.message });
+                }
+        });
+
+        module.exports = router;
+
+
+        // server.js
+
+       // Import routes
+       const propertyRoutes = require('./routes/property');
+       const userRoutes = require('./routes/user');
+
+       // Use routes
+       app.use('/api/properties', propertyRoutes);
+       app.use('/api/users', userRoutes);
+
+
+    </script>
+    
+</body>
+</html>

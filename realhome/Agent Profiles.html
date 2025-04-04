@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Profiles</title>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .agent-profile {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .agent-profile img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            margin-right: 20px;
+        }
+        .agent-info, .agent-listings, .agent-testimonials, .additional-info {
+            width: 100%;
+        }
+        .agent-info h3, .agent-listings h3, .agent-testimonials h3, .additional-info h3 {
+            margin-top: 0;
+        }
+        .agent-info p, .agent-listings p, .agent-testimonials p, .additional-info p {
+            margin: 5px 0;
+        }
+        .social-media a {
+            margin-right: 10px;
+            color: #333;
+        }
+        .agent-listings, .agent-testimonials, .additional-info {
+            margin-top: 20px;
+        }
+        .listing, .testimonial, .blog-post {
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+        .swiper-container {
+            width: 100%;
+            height: 300px;
+            margin-top: 20px;
+        }
+        .swiper-slide img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Agent Profile Section -->
+        <section class="agent-profile">
+            <img src="images/agent1.jpg" alt="Agent Photo">
+            <div class="agent-info">
+                <h3>Agent Information</h3>
+                <p><strong>Name:</strong> John Doe</p>
+                <p><strong>Title:</strong> Senior Real Estate Agent</p>
+                <h4>Contact Information:</h4>
+                <p><strong>Phone:</strong> (123) 456-7890</p>
+                <p><strong>Email:</strong> john.doe@example.com</p>
+                <p><strong>Office Address:</strong> 123 Main Street, Anytown, USA</p>
+                <h4>Social Media:</h4>
+                <p class="social-media">
+                    <a href="https://linkedin.com/in/johndoe" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://facebook.com/johndoe" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://instagram.com/john.doe.realestate" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://twitter.com/johndoerealestate" target="_blank"><i class="fab fa-twitter"></i></a>
+                </p>
+                <h4>Professional Information:</h4>
+                <p><strong>Years of Experience:</strong> 10</p>
+                <p><strong>Specializations:</strong> Residential, Luxury Homes, First-Time Buyers</p>
+                <p><strong>Languages Spoken:</strong> English, Spanish</p>
+                <p><strong>Certifications:</strong> Certified Residential Specialist (CRS), Accredited Buyer’s Representative (ABR)</p>
+                <p><strong>Awards:</strong> Top Producer 2020, Best Real Estate Agent 2019</p>
+                <h4>Bio:</h4>
+                <p>John Doe has been helping clients find their dream homes for over a decade. Known for his dedication and personalized service, John is committed to making the buying and selling process as smooth as possible.</p>
+            </div>
+        </section>
+
+        <!-- Listings Section -->
+        <section class="agent-listings">
+            <h3>Listings</h3>
+            <div class="listing">
+                <h4>Listing Title: Beautiful Family Home</h4>
+                <p><strong>Property Type:</strong> Single-Family Home</p>
+                <p><strong>Address:</strong> 456 Elm Street, Anytown, USA</p>
+                <p><strong>Price:</strong> $500,000</p>
+                <p><strong>Square Footage:</strong> 2,500 sqft</p>
+                <p><strong>Number of Bedrooms:</strong> 4</p>
+                <p><strong>Number of Bathrooms:</strong> 3</p>
+                <p><strong>Key Features:</strong> Modern kitchen, spacious backyard, finished basement</p>
+                <p><strong>Property Description:</strong> This stunning family home features a modern kitchen with stainless steel appliances, a spacious backyard perfect for entertaining, and a finished basement.</p>
+                <p><strong>Photos:</strong></p>
+                <p><strong>Virtual Tour Link:</strong> <a href="#">View Virtual Tour</a></p>
+                <p><strong>Open House Dates:</strong> July 30, 2024, 1-4 PM</p>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="agent-testimonials">
+            <h3>Testimonials</h3>
+            <div class="testimonial">
+                <p><strong>Client Name:</strong> Jane Smith</p>
+                <p><strong>Testimonial:</strong> "John was fantastic to work with. He made the process of buying our first home easy and stress-free."</p>
+                <p><strong>Rating:</strong> ★★★★★</p>
+            </div>
+        </section>
+
+        <!-- Additional Information Section -->
+        <section class="additional-info">
+            <h3>Additional Information</h3>
+            <div class="blog-post">
+                <h4>Blog Posts:</h4>
+                <p><a href="#">Read John's Latest Blog Posts</a></p>
+            </div>
+            <div class="market-insights">
+                <h4>Market Insights:</h4>
+                <p><a href="#">Explore Market Insights</a></p>
+            </div>
+            <div class="community-involvement">
+                <h4>Community Involvement:</h4>
+                <p>Active member of the Anytown Community Association</p>
+            </div>
+        </section>
+    </div>
+    <div class="container">
+        <!-- Agent Profile Section -->
+        <section class="agent-profile">
+            <img src="images/agent2.jpeg" alt="Agent Photo">
+            <div class="agent-info">
+                <h3>Agent Information</h3>
+                <p><strong>Name:</strong> Sarah Johnson</p>
+                <p><strong>Title:</strong> Real Estate Agent</p>
+                <h4>Contact Information:</h4>
+                <p><strong>Phone:</strong> (987) 654-3210</p>
+                <p><strong>Email:</strong> sarah.johnson@Agent.com</p>
+                <p><strong>Office Address:</strong> 456 Oak Street, Anytown, USA</p>
+                <h4>Social Media:</h4>
+                <p class="social-media">
+                    <a href="https://linkedin.com/in/sarahjohnson" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://facebook.com/sarahjohnson" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://instagram.com/sarah.johnson.realestate" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://twitter.com/sarahjohnson" target="_blank"><i class="fab fa-twitter"></i></a>
+                </p>
+                <h4>Professional Information:</h4>
+                <p><strong>Years of Experience:</strong> 5</p>
+                <p><strong>Specializations:</strong> Commercial, Investment Properties, Condos</p>
+                <p><strong>Languages Spoken:</strong> English, French</p>
+                <p><strong>Certifications:</strong> Certified Commercial Investment Member (CCIM), Seller Representative Specialist (SRS)</p>
+                <p><strong>Awards:</strong> Rising Star 2021</p>
+                <h4>Bio:</h4>
+                <p>Sarah Johnson is dedicated to helping clients achieve their real estate goals. With a focus on commercial and investment properties, she brings a wealth of knowledge and a commitment to excellence.</p>
+            </div>
+        </section>
+    
+        <!-- Listings Section -->
+        <section class="agent-listings">
+            <h3>Listings</h3>
+            <div class="listing">
+                <h4>Listing Title: Modern Office Space</h4>
+                <p><strong>Property Type:</strong> Commercial Office</p>
+                <p><strong>Address:</strong> 789 Pine Street, Anytown, USA</p>
+                <p><strong>Price:</strong> $1,200,000</p>
+                <p><strong>Square Footage:</strong> 5,000 sqft</p>
+                <p><strong>Number of Bedrooms:</strong> N/A</p>
+                <p><strong>Number of Bathrooms:</strong> 2</p>
+                <p><strong>Key Features:</strong> Open floor plan, modern design, prime location</p>
+                <p><strong>Property Description:</strong> This modern office space offers an open floor plan, state-of-the-art design, and is located in a prime business district.</p>
+                <p><strong>Photos:</strong></p>
+                <p><strong>Virtual Tour Link:</strong> <a href="#">View Virtual Tour</a></p>
+                <p><strong>Open House Dates:</strong> August 5, 2024, 10 AM-2 PM</p>
+            </div>
+        </section>
+    
+        <!-- Testimonials Section -->
+        <section class="agent-testimonials">
+            <h3>Testimonials</h3>
+            <div class="testimonial">
+                <p><strong>Client Name:</strong> Mark Thompson</p>
+                <p><strong>Testimonial:</strong> "Sarah's expertise in commercial properties was invaluable. She found us the perfect office space and negotiated a great deal."</p>
+                <p><strong>Rating:</strong> ★★★★★</p>
+            </div>
+        </section>
+    
+        <!-- Additional Information Section -->
+        <section class="additional-info">
+            <h3>Additional Information</h3>
+            <div class="blog-post">
+                <h4>Blog Posts:</h4>
+                <p><a href="#">Read Sarah's Latest Blog Posts</a></p>
+            </div>
+            <div class="market-insights">
+                <h4>Market Insights:</h4>
+                <p><a href="#">Explore Market Insights</a></p>
+            </div>
+            <div class="community-involvement">
+                <h4>Community Involvement:</h4>
+                <p>Volunteer at the Anytown Shelter</p>
+            </div>
+        </section>
+    </div>
+    
+    <div class="container">
+        <!-- Agent Profile Section -->
+        <section class="agent-profile">
+            <img src="images/agent3.jpeg" alt="Agent Photo">
+            <div class="agent-info">
+                <h3>Agent Information</h3>
+                <p><strong>Name:</strong> Michael Lee</p>
+                <p><strong>Title:</strong> Junior Real Estate Agent</p>
+                <h4>Contact Information:</h4>
+                <p><strong>Phone:</strong> (555) 123-4567</p>
+                <p><strong>Email:</strong>michael.lee@Agent.com</p>
+                <p><strong>Office Address:</strong> 789 Maple Avenue, Anytown, USA</p>
+                <h4>Social Media:</h4>
+                <p class="social-media">
+                    <a href="https://linkedin.com/in/michaellee" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://facebook.com/michaellee" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://instagram.com/michael.lee.realestate" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://twitter.com/michaellee" target="_blank"><i class="fab fa-twitter"></i></a>
+                </p>
+                <h4>Professional Information:</h4>
+                <p><strong>Years of Experience:</strong> 2</p>
+                <p><strong>Specializations:</strong> Rentals, Condos, Investment Properties</p>
+                <p><strong>Languages Spoken:</strong> English, Mandarin</p>
+                <p><strong>Certifications:</strong> Real Estate Negotiation Expert (RENE)</p>
+                <p><strong>Awards:</strong> Rookie of the Year 2022</p>
+                <h4>Bio:</h4>
+                <p>Michael Lee is passionate about real estate and is dedicated to helping clients find the perfect rental or investment property. With a background in finance, Michael brings a unique perspective to the real estate market.</p>
+            </div>
+        </section>
+    
+        <!-- Listings Section -->
+        <section class="agent-listings">
+            <h3>Listings</h3>
+            <div class="listing">
+                <h4>Listing Title: Cozy Apartment</h4>
+                <p><strong>Property Type:</strong> Apartment</p>
+                <p><strong>Address:</strong> 123 Maple Street, Anytown, USA</p>
+                <p><strong>Price:</strong> $1,200/month</p>
+                <p><strong>Square Footage:</strong> 800 sqft</p>
+                <p><strong>Number of Bedrooms:</strong> 2</p>
+                <p><strong>Number of Bathrooms:</strong> 1</p>
+                <p><strong>Key Features:</strong> Balcony, pet-friendly, close to public transport</p>
+                <p><strong>Property Description:</strong> This cozy apartment features a balcony, is pet-friendly, and is conveniently located near public transportation.</p>
+                <p><strong>Photos:</strong></p>
+                <p><strong>Virtual Tour Link:</strong> <a href="#">View Virtual Tour</a></p>
+                <p><strong>Open House Dates:</strong> August 10, 2024, 2-5 PM</p>
+            </div>
+        </section>
+    
+        <!-- Testimonials Section -->
+        <section class="agent-testimonials">
+            <h3>Testimonials</h3>
+            <div class="testimonial">
+                <p><strong>Client Name:</strong> Emily Davis</p>
+                <p><strong>Testimonial:</strong> "Michael helped us find the perfect apartment. He was knowledgeable and patient throughout the process."</p>
+                <p><strong>Rating:</strong> ★★★★★</p>
+            </div>
+        </section>
+    
+        <!-- Additional Information Section -->
+        <section class="additional-info">
+            <h3>Additional Information</h3>
+            <div class="blog-post">
+                <h4>Blog Posts:</h4>
+                <p><a href="#">Read Michael's Latest Blog Posts</a></p>
+            </div>
+            <div class="market-insights">
+                <h4>Market Insights:</h4>
+                <p><a href="#">Explore Market Insights</a></p>
+            </div>
+            <div class="community-involvement">
+                <h4>Community Involvement:</h4>
+                <p>Volunteer at the Local Food Bank</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+    </script>
+</body>
+</html>

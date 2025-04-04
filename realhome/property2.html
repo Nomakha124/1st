@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         body{
+            font-family: sans-serif;
+        }
+        .gallery{
+            margin: 30px 0 50px;
+        }
+        .gallery img{
+            width: 230px;
+            padding: 5px;
+            filter: grayscale(100%);
+            transition: 1s;
+        }
+        .gallery img:hover{
+            filter: grayscale(0);
+            transform: 1.1;
+        }
+        .agent-section {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .agent-section img {
+            width: 100%;
+            height: auto;
+        }
+        .agent-section button {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+        .agent-section a {
+            display: block;
+            color: #007BFF;
+            text-decoration: none;
+            margin: 5px 0;
+        }
+        .agent-section a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <section class="property-details" id="property2">
+        <h2>Luxury Villa</h2>
+        <div class="gallery">
+            <a href="images/appart/irsf.webp"><img src="images/appart/irsf-small.jpg" alt="Property Image 1"></a>
+            <a href="images/appart/feu.webp"><img src="images/appart/feu-small.jpg" alt="Property Image 2"></a>
+            <a href="images/appart/o4h.webp"><img src="images/appart/o4h-small.jpg" alt="Property Image 3"></a>
+            <a href="images/appart/nx6.webp"><img src="images/appart/nx6-small.jpg" alt="Property Image 3"></a>
+            <a href="images/appart/astugp.webp"><img src="images/appart/astugp-small.jpg" alt="Property Image 3"></a>
+            <a href="images/appart/bkrr.webp"><img src="images/appart/bkrr-small.jpg" alt="Property Image 3"></a>
+            <a href="images/appart/v4cktns.webp"><img src="images/appart/v4cktns-small.jpg" alt="Property Image 3"></a>
+            <a href="images/appart/zsk.webp"><img src="images/appart/zsk-small.jpg" alt="Property Image 3"></a>
+            <a href="images/appart/znvjdtoaqmurd8gnveha.webp"><img src="images/appart/znvjdtoaqmurd8-small.jpg" alt="Property Image 3"></a>
+            <a href="images/appart/znvjdtoaqmurd8gnveha.webp"><img src="images/appart/lw9v4kyyk6na1age-small.jpg" alt="Property Image 3"></a>
+            <a href="images/appart/zv1xvd1ltfyj7afpexzw.webp"><img src="images/appart/zv1xvd1ltfyj7afpexzw-small.jpg" alt="Property Image 3"></a>
+        </div>
+        <div class="property-info">
+            <p>Price: R300,000</p>
+            <p>Description: A Luxury Villa located in the city center.</p>
+            <h3>
+                This newly constructed duplex has it all, from a heated driveway, smart home technology, 
+                a jacuzzi spa, steam shower, high-end appliances and finishes, an oversized garage, professional landscaping and much more. 
+                Built to step code 5 this home is extremely energy efficient. This 2246 sqft 3 bed 3.5 bath home 
+                has more than enough room to make this your weekend getaway or full time residence. 
+                Relax on one of your 3 patios and enjoy the tranquility of the rushing river. 
+                Don’t miss out on this rare opportunity for a brand new luxurious turn-key home
+            </h3>
+            <ul class="amenities">
+                <li><i class="fas fa-swimming-pool"></i>Pool</li>
+                <li><i class="fas fa-dumbbell"></i>Gym</li>
+                <li><i class="fas fa-car"></i>Garage</li>
+            </ul>
+        </div>
+        <!-- Agent Section -->
+        <section class="agent-section">
+           <h3>Sarah Johnson</h3>
+           <p>Registered with the PPRA - Full Status FFC</p>
+           <img src="images/agent2.jpeg" alt="Juliet Jooste">
+           <button onclick="whatsappAgent()">WhatsApp me</button>
+           <a href="tel:+1234567890">Show contact numbers</a>
+           <a href="mailto:juliet@example.com">Email me</a>
+           <a href="Agent Profiles.html">View my profile</a>
+        </section>
+        <div class="property-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.067680168939!2d-122.41941538468143!3d37.774929279758714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858064f8d9627b%3A0x3e4b8c3c7ba5b6a3!2sVrbnik!5e0!3m2!1sen!2sus!4v1595698937484!5m2!1sen!2sus" width="300" height="250" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div>
+        <button onclick="contactAgent()">Contact Agent</button>
+
+    </section>
+
+    <script>
+        // Function to initialize the IndexedDB
+        let db;
+        function initDB() {
+            const request = indexedDB.open("PropertyDB", 1);
+            
+            request.onerror = function (event) {
+                console.log("Database error: " + event.target.errorCode);
+            };
+
+            request.onupgradeneeded = function (event) {
+                db = event.target.result;
+                // Create an objectStore to hold information about properties
+                const objectStore = db.createObjectStore("properties", { keyPath: "id", autoIncrement: true });
+
+                // Define fields to store
+                objectStore.createIndex("title", "title", { unique: false });
+                objectStore.createIndex("price", "price", { unique: false });
+                objectStore.createIndex("description", "description", { unique: false });
+                objectStore.createIndex("agent", "agent", { unique: false });
+                objectStore.createIndex("amenities", "amenities", { unique: false });
+                objectStore.createIndex("gallery", "gallery", { unique: false });
+            };
+            
+            request.onsuccess = function (event) {
+                db = event.target.result;
+                console.log("Database initialized successfully!");
+                // Load initial property into the DB
+                addProperty();
+            };
+        }
+
+        // Function to add property data to the IndexedDB
+        function addProperty() {
+            const transaction = db.transaction(["properties"], "readwrite");
+            const objectStore = transaction.objectStore("properties");
+
+            // Property details object
+            const propertyData = {
+                title: "Luxury Villa",
+                price: "R300,000",
+                description: "This newly constructed duplex has it all, from a heated driveway, smart home technology, a jacuzzi spa...",
+                agent: {
+                    name: "Sarah Johnson",
+                    contact: "tel:+1234567890",
+                    email: "juliet@example.com"
+                },
+                amenities: ["Pool", "Gym", "Garage"],
+                gallery: [
+                    "images/appart/irsf.webp",
+                    "images/appart/feu.webp",
+                    "images/appart/o4h.webp"
+                ]
+            };
+
+            const request = objectStore.add(propertyData);
+
+            request.onsuccess = function (event) {
+                console.log("Property has been added to your database.");
+            };
+
+            request.onerror = function (event) {
+                console.log("Unable to add data\r\n" + event.target.errorCode);
+            };
+        }
+
+        // Function to retrieve and display property data
+        function displayProperty() {
+            const transaction = db.transaction(["properties"], "readonly");
+            const objectStore = transaction.objectStore("properties");
+            
+            const request = objectStore.get(1); // Assuming property with id = 1
+            
+            request.onsuccess = function (event) {
+                const property = request.result;
+                if (property) {
+                    document.getElementById("property-title").textContent = property.title;
+                    document.getElementById("property-price").textContent = property.price;
+                    document.getElementById("property-description").textContent = property.description;
+                    
+                    // Display agent info
+                    document.getElementById("agent-name").textContent = property.agent.name;
+                    document.getElementById("agent-contact").href = property.agent.contact;
+                    document.getElementById("agent-email").href = `mailto:${property.agent.email}`;
+                    
+                    // Display gallery images
+                    const galleryDiv = document.getElementById("gallery");
+                    property.gallery.forEach(image => {
+                        const imgElement = document.createElement("img");
+                        imgElement.src = image;
+                        galleryDiv.appendChild(imgElement);
+                    });
+                } else {
+                    console.log("No property found in the database.");
+                }
+            };
+        }
+
+        // Initialize the DB and add the property on page load
+        window.onload = function() {
+            initDB();
+        };
+    </script>
+</body>
+</html>

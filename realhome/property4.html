@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         body{
+            font-family: sans-serif;
+        }
+        .gallery{
+            margin: 30px 0 50px;
+        }
+        .gallery img{
+            width: 230px;
+            padding: 5px;
+            filter: grayscale(100%);
+            transition: 1s;
+        }
+        .gallery img:hover{
+            filter: grayscale(0);
+            transform: 1.1;
+        }
+        .agent-section {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .agent-section img {
+            width: 100%;
+            height: auto;
+        }
+        .agent-section button {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+        .agent-section a {
+            display: block;
+            color: #007BFF;
+            text-decoration: none;
+            margin: 5px 0;
+        }
+        .agent-section a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <section class="property-details" id="property4">
+        <h2>Office Space</h2>
+        <div class="gallery"></div>
+            <a href="images/office/do.jpeg"><img src="images/office/do-small.jpg" alt="Property Image 1"></a>
+            <a href="images/office/dow.jpg"><img src="images/office/dow-small.jpg" alt="Property Image 2"></a>
+            <a href="images/office/im.jpg"><img src="images/office/im-small.jpg" alt="Property Image 3"></a>
+            <a href="images/office/Modern-Office-Interior.webp"><img src="images/office/Modern-Office-Interior-small.jpg" alt="Property Image 3"></a>
+            <a href="images/office/office space.jpg"><img src="images/office/office space-small.jpg" alt="Property Image 3"></a>
+            <a href="images/office/office.jpg"><img src="images/office/office-small.jpg" alt="Property Image 3"></a>
+        </div>
+        <p>Price: R1,500,230</p>
+        <p>Description: A Office Space located in the city center.</p>
+        <p>Amenities: Pool, Gym, Garage</p>
+        <ul class="amenities">
+            <li><i class="fas fa-swimming-pool"></i>Pool</li>
+            <li><i class="fas fa-dumbbell"></i>Gym</li>
+            <li><i class="fas fa-car"></i>Garage</li>
+        </ul>
+        <!-- Agent Section -->
+        <section class="agent-section">
+            <h3>John Doe</h3>
+            <p>Registered with the PPRA - Full Status FFC</p>
+            <img src="images/agent1.jpg" alt="Juliet Jooste">
+            <button onclick="whatsappAgent()">WhatsApp me</button>
+            <a href="tel:+1234567890">Show contact numbers</a>
+            <a href="michael.lee@Agent.com">Email me</a>
+            <a href="Agent Profiles.html">View my profile</a>
+         </section> 
+        <button onclick="contactAgent()">Contact Agent</button>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3309.284613769205!2d18.38274657544218!3d-33.959523423763116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc67b40f7fd30f%3A0x7b05ecc1117699a5!2s31%20Francolin%20Rd%2C%20Bakoven%2C%20Cape%20Town%2C%208005!5e0!3m2!1sen!2sza!4v1722457370497!5m2!1sen!2sza" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+
+    <script>
+        // Function to initialize the IndexedDB
+        let db;
+        function initDB() {
+            const request = indexedDB.open("PropertyDB", 1);
+            
+            request.onerror = function (event) {
+                console.log("Database error: " + event.target.errorCode);
+            };
+
+            request.onupgradeneeded = function (event) {
+                db = event.target.result;
+                // Create an objectStore to hold information about properties
+                const objectStore = db.createObjectStore("properties", { keyPath: "id", autoIncrement: true });
+
+                // Define fields to store
+                objectStore.createIndex("title", "title", { unique: false });
+                objectStore.createIndex("price", "price", { unique: false });
+                objectStore.createIndex("description", "description", { unique: false });
+                objectStore.createIndex("agent", "agent", { unique: false });
+                objectStore.createIndex("amenities", "amenities", { unique: false });
+                objectStore.createIndex("gallery", "gallery", { unique: false });
+            };
+            
+            request.onsuccess = function (event) {
+                db = event.target.result;
+                console.log("Database initialized successfully!");
+                // Load initial property into the DB
+                addProperty();
+            };
+        }
+
+        // Function to add property data to the IndexedDB
+        function addProperty() {
+            const transaction = db.transaction(["properties"], "readwrite");
+            const objectStore = transaction.objectStore("properties");
+
+            // Property details object
+            const propertyData = {
+                title: "Luxury Villa",
+                price: "R300,000",
+                description: "This newly constructed duplex has it all, from a heated driveway, smart home technology, a jacuzzi spa...",
+                agent: {
+                    name: "Sarah Johnson",
+                    contact: "tel:+1234567890",
+                    email: "juliet@example.com"
+                },
+                amenities: ["Pool", "Gym", "Garage"],
+                gallery: [
+                    "images/appart/irsf.webp",
+                    "images/appart/feu.webp",
+                    "images/appart/o4h.webp"
+                ]
+            };
+
+            const request = objectStore.add(propertyData);
+
+            request.onsuccess = function (event) {
+                console.log("Property has been added to your database.");
+            };
+
+            request.onerror = function (event) {
+                console.log("Unable to add data\r\n" + event.target.errorCode);
+            };
+        }
+
+        // Function to retrieve and display property data
+        function displayProperty() {
+            const transaction = db.transaction(["properties"], "readonly");
+            const objectStore = transaction.objectStore("properties");
+            
+            const request = objectStore.get(1); // Assuming property with id = 1
+            
+            request.onsuccess = function (event) {
+                const property = request.result;
+                if (property) {
+                    document.getElementById("property-title").textContent = property.title;
+                    document.getElementById("property-price").textContent = property.price;
+                    document.getElementById("property-description").textContent = property.description;
+                    
+                    // Display agent info
+                    document.getElementById("agent-name").textContent = property.agent.name;
+                    document.getElementById("agent-contact").href = property.agent.contact;
+                    document.getElementById("agent-email").href = `mailto:${property.agent.email}`;
+                    
+                    // Display gallery images
+                    const galleryDiv = document.getElementById("gallery");
+                    property.gallery.forEach(image => {
+                        const imgElement = document.createElement("img");
+                        imgElement.src = image;
+                        galleryDiv.appendChild(imgElement);
+                    });
+                } else {
+                    console.log("No property found in the database.");
+                }
+            };
+        }
+
+        // Initialize the DB and add the property on page load
+        window.onload = function() {
+            initDB();
+        };
+    </script>
+</body>
+</html>

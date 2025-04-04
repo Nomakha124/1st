@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>search</title>
+    <style>
+        /* Reset some basic styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navigation styling */
+        nav {
+            background-color: #f2f2f2;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: flex-start;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+        }
+
+        nav a:hover {
+            color: #ff4c4c;
+        }
+
+        /* General layout */
+        body {
+            background-color: #fff;
+            color: #333;
+        }
+
+        .filters {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .filters form {
+            margin-bottom: 20px;
+            font-size: 24px;
+            text-align: center;
+            color: #333;
+        }
+
+        .flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .box {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #ff4c4c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            background-color: #e04343;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .flex {
+                flex-direction: column;
+            }
+
+            .box {
+                width: 100%;
+            }
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #333;
+        }    
+        .service{
+            background: var(--cultured-2);
+            padding-block: var(--section-padding);
+        }
+        .service-list{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        .service-card {
+           background-color: #fff;
+           border: 1px solid #ddd;
+           border-radius: 10px;
+           padding: 20px;
+           margin: 15px;
+           text-align: center;
+           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+           width: calc(33.333% - 30px);
+           box-sizing: border-box;
+           transition: transform 0.3s ease;
+        }
+        .card-icon img {
+           width: 60px;
+           height: 60px;
+           margin-bottom: 15px;
+        }
+        .card-icon{
+            width: max-content;
+            margin-inline: auto;
+            margin-bottom: 20px;
+        }
+        .card-link ion-icon {
+            margin-left: 5px;
+        }
+
+        @media (max-width: 768px) {
+           .service-card {
+              width: calc(50% - 30px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .service-card {
+               width: calc(100% - 30px);
+            }
+        }
+        .card-title{
+            margin-bottom: 15px;
+        }
+        .card-title > a:is(:hover, :focus) {color: var(--orange-soda);}
+        .card-text{
+            color: var(--cadet);
+            font-size: var(--fs-5);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        .card-link{
+            color: var(--opal);
+            font-size: var(--fs-5);
+            font-weight: var(--fw-600);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+        }
+        .service-card:is(:hover, :focus) .card-link{color: var(--orange-soda);}
+        .service-card::after{
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--orange-soda);
+            transition: var(--transition);
+        }
+        .service-card:is(:hover, :focus)::after{width: 100%;}
+
+        main {
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .listings {
+           display: flex;
+           flex-wrap: wrap;
+           justify-content: space-around;
+           justify-content: center;
+        }
+
+        .property {
+           border: 1px solid #ccc;
+           padding: 10px;
+           margin: 10px;
+           width: 200px;
+           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+           border-radius: 10px;
+           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+           width: calc(33.333% - 20px);
+           box-sizing: border-box;
+           overflow: hidden;
+        }
+        .property img {
+           max-width: 100%;
+           height: auto;
+        }
+        .property h3 {
+           margin: 0 0 10px;
+        }
+        .property p {
+           margin: 5px 0;
+           color: #555;
+        }
+        .property button {
+           display: inline-block;
+           margin-top: 10px;
+           padding: 10px 15px;
+           background-color: #333;
+           color: white;
+           border: none;
+           cursor: pointer;
+           text-decoration: none;
+           border-radius: 5px;
+        }
+        .property button:hover {
+           background-color: #0056b3;
+        }
+
+        @media (max-width: 768px) {
+           .property {
+               width: calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .property {
+               width: calc(100% - 20px);
+            }
+        }
+        .favorite-btn, .wishlist-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #f39c12;
+            color: white;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .favorite-btn:hover, .wishlist-btn:hover {
+            background-color: #e67e22;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation bar -->
+    <nav>
+        <a href="#">Buy</a>
+        <a href="#">Sell</a>
+        <a href="#">Rent</a>
+        <a href="#">Help</a>
+    </nav>
+
+    <section class="filters">
+        <form action="" method="post">
+            <div class="flex">     
+              <div class="box">
+                   <label for="location">Location:</label>
+                   <input type="text" id="location" name="location" required maxlength="50" placeholder="Enter city or area" class="input">
+            </div>
+            <div class="box">
+                <label for="Property Type">offer Type:</label>
+                <select name="offer" class="input">
+                    <option value="buy">buy</option>
+                    <option value="rent">rent</option>
+                    <option value="sell">sell</option>
+                </select>         
+            </div>
+            <div class="box">
+                <label for="Property Type">Property Type:</label>
+                <select name="type" class="input">
+                    <option value="Office Space">Office Space</option>
+                    <option value="House">House</option>
+                    <option value="Apartment">Apartment</option>
+                    <option value="Condo">Condo</option>
+                    <option value="Land Plot">Land Plot</option>
+                    <option value="Modern Luxury">Modern Luxury</option>
+                    <option value="detached house">detached house</option>
+                    <option value="Commercial">Commercial</option>
+                </select>         
+            </div>
+            <div class="box">
+                <label for="Min Price">Min Price:</label>
+                <select name="Min Price" class="input">
+                    <option value="100,000">100,000</option>
+                    <option value="250,000">250,000</option>
+                    <option value="300,000">300,000</option>
+                    <option value="600,000">600,000</option>
+                </select>         
+            </div>
+            <div class="box">
+                <label for="Max Price">Max Price:</label>
+                <select name="Max Price" class="input">
+                    <option value="R1,500,230">R1,500,230</option>
+                    <option value="R2,9085,000">R2,9085,000</option>
+                    <option value="R3,000,000">R3,000,000</option>
+                    <option value="R4,897,237">R4,897,237</option>
+                </select>         
+            </div>
+            <div class="box">
+                <label for="Property Type">Status:</label>
+                <select name="Status" class="input">
+                    <option value="ready to move">ready to move</option>
+                    <option value="under construction">ready to move</option>
+                    <option value="sell">sell</option>
+                </select>         
+            </div>
+            <div class="box">
+                <label for="Property Type">furnished:</label>
+                <select name="furnished" class="input">
+                    <option value="unfurnished">unfurnished</option>
+                    <option value="furnished">furnished</option>
+                    <option value="semi-furnished">semi-furnished</option>
+                </select>         
+            </div>
+            <input type="submit" value="search property" name="search" class="btn">
+        </form>
+    </section>
+    <div class="container">
+        <section class="listings" id="property-list">
+        
+            <div class="property" >
+                <img src="images/appart/nx6.webp" alt="Property 1">
+                <div class="property-details">
+                    <h3>Modern Apartment</h3>
+                    <p>Price: R250,000</p>
+                    <p>Location: New York, NY</p>
+                    <p>Type: Apartment</p>
+                    <button class="favorite-btn" onclick="addToFavorites(1)">Add to Favorites</button>
+                    <button class="wishlist-btn" onclick="addToWishlist(1)">Add to Wishlist</button>
+                    <button onclick="window.location='property2.html';">View Details</button>
+                </div>
+            </div>
+            <div class="property">
+                <img src="images/cozy-ness/cozy house.jpg" alt="Property 2">
+                <div class="property-details">
+                    <h3>Cozy House</h3>
+                    <p>Price: R300,000</p>
+                    <p>Location: Los Angeles, CA</p>
+                    <p>Type: House</p>
+                    <button class="favorite-btn" onclick="addToFavorites(2)">Add to Favorites</button>
+                    <button class="wishlist-btn" onclick="addToWishlist(2)">Add to Wishlist</button>
+                    <button onclick="window.location='property7.html';">View Details</button>
+                </div>
+            </div>
+            <div class="property">
+                <img src="images/trends/modern-apartment.jpg" alt="Property 3">
+                <div class="property-details">
+                    <h3>Luxury Villa</h3>
+                    <p>Price: R2,908,000</p>
+                    <p>Location: Miami, FL</p>
+                    <p>Type: Villa</p>
+                    <button class="favorite-btn" onclick="addToFavorites(3)">Add to Favorites</button>
+                    <button class="wishlist-btn" onclick="addToWishlist(3)">Add to Wishlist</button>
+                    <button onclick="window.location='property5.html';">View Details</button>
+                </div>
+            </div>
+            <div class="property">
+                <img src="images/office/do.jpeg" alt="Property 4">
+                <div class="property-details">
+                    <h3>Office Space</h3>
+                    <p>Price: R1,500,230</p>
+                    <p>Location: San Francisco, CA</p>
+                    <p>Type: Office</p>
+                    <button class="favorite-btn" onclick="addToFavorites(4)">Add to Favorites</button>
+                    <button class="wishlist-btn" onclick="addToWishlist(4)">Add to Wishlist</button>
+                    <button onclick="window.location='property4.html';">View Details</button>
+                </div>
+            </div>
+            <div class="property">
+                <img src="images/cabin/10.webp" alt="Property 5">
+                <div class="property-details">
+                    <h3>Land Plot</h3>
+                    <p>Price: R3,000,000</p>
+                    <p>Location: Austin, TX</p>
+                    <p>Type: Land</p>
+                    <button class="favorite-btn" onclick="addToFavorites(5)">Add to Favorites</button>
+                    <button class="wishlist-btn" onclick="addToWishlist(5)">Add to Wishlist</button>
+                    <button onclick="window.location='property8.html';">View Details</button>
+                </div>
+            </div>
+            <div class="property">
+                <img src="images/Modern Luxury/466378675.jpg" alt="Property 6">
+                <div class="property-details">
+                    <h3>Modern Luxury</h3>
+                    <p>Price: R4,258,897</p>
+                    <p>Location: Austin, TX</p>
+                    <p>Type: Land</p>
+                    <button class="favorite-btn" onclick="addToFavorites(6)">Add to Favorites</button>
+                    <button class="wishlist-btn" onclick="addToWishlist(6)">Add to Wishlist</button>
+                    <button onclick="window.location='property1.html';">View Details</button>
+                </div>
+            </div>
+            <div class="property">
+                <img src="images/home/home1.webp" alt="Property 7">
+                <div class="property-details">
+                    <h3>Commercial</h3>
+                    <p>Price: R500,000</p>
+                    <p>Location: Austin, TX</p>
+                    <p>Type: Land</p>
+                    <button class="favorite-btn" onclick="addToFavorites(7)">Add to Favorites</button>
+                    <button class="wishlist-btn" onclick="addToWishlist(7)">Add to Wishlist</button>
+                    <button onclick="window.location='property10.html';">View Details</button>
+                </div>
+            </div>
+            <div class="property">
+                <img src="images/Luxury/17233-.jpg" alt="Property 8">
+                <div class="property-details">
+                    <h3>Apartment</h3>
+                    <p>Price: R600,000</p>
+                    <p>Location: Austin, TX</p>
+                    <p>Type: Land</p>
+                    <button class="favorite-btn" onclick="addToFavorites(8)">Add to Favorites</button>
+                    <button class="wishlist-btn" onclick="addToWishlist(8)">Add to Wishlist</button>
+                    <button onclick="window.location='property6.html';">View Details</button>
+                </div>
+            </div>
+            <div class="property">
+                <img src="images/house/images.jpg" alt="Property 9">
+                <div class="property-details">
+                    <h3>detached house</h3>
+                    <p>Price: R100,000</p>
+                    <p>Location: Austin, TX</p>
+                    <p>Type: Land</p>
+                    <button class="favorite-btn" onclick="addToFavorites(9)">Add to Favorites</button>
+                    <button class="wishlist-btn" onclick="addToWishlist(9)">Add to Wishlist</button>
+                    <button onclick="window.location='property9.html';">View Details</button>
+                </div>
+            </div>
+            <div class="property" data-lat="40.712776" data-lng="-74.005974">
+                <img src="/images/villa/villa1.jpeg" alt="Property 10">
+                <div class="property-details">
+                    <h3>townhouse</h3>
+                    <p>Price: R4,897,237</p>
+                    <p>Location: Austin, TX</p>
+                    <p>Type: Land</p>
+                    <button class="favorite-btn" onclick="addToFavorites(10)">Add to Favorites</button>
+                    <button class="wishlist-btn" onclick="addToWishlist(10)">Add to Wishlist</button>
+                    <button onclick="window.location='property3.html';">View Details</button>
+                </div>
+            </div>
+        </section>    
+    </div>
+</body>
+</html>

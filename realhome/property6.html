@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         body{
+            font-family: sans-serif;
+        }
+        .gallery{
+            margin: 30px 0 50px;
+        }
+        .gallery img{
+            width: 230px;
+            padding: 5px;
+            filter: grayscale(100%);
+            transition: 1s;
+        }
+        .gallery img:hover{
+            filter: grayscale(0);
+            transform: 1.1;
+        }
+        .agent-section {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .agent-section img {
+            width: 100%;
+            height: auto;
+        }
+        .agent-section button {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+        .agent-section a {
+            display: block;
+            color: #007BFF;
+            text-decoration: none;
+            margin: 5px 0;
+        }
+        .agent-section a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <section class="property-details" id="property6">
+        <h2>Modern Luxury</h2>
+        <div class="gallery">
+            <a href="images/Luxury/1733-RI.jpg"><img src="images/Luxury/1733-RI-small.jpg" alt="Property Image"></a>
+            <a href="images/Luxury/1733-RIVER-RUN-PLACE-WLS-10.jpg"><img src="images/Luxury/1733-RIVER-RUN-PLACE-WLS-10-small.jpg" alt="Property Image"></a>
+            <a href="images/Luxury/1733-RIVER-RUN-PLACE-WLS-12.jpg"><img src="images/Luxury/1733-RIVER-RUN-PLACE-WLS-12-small.jpg" alt="Property Image"></a>
+            <a href="images/Luxury/1733-RIVER-RUN-PLACE-WLS-14.jpg"><img src="images/Luxury/1733-RIVER-RUN-PLACE-WLS-14-small.jpg" alt="Property Image"></a>
+            <a href="images/Luxury/1733-RIVER-RUN-PLACE-WLS-15.jpg"><img src="images/Luxury/1733-RIVER-RUN-PLACE-WLS-15-small.jpg" alt="Property Image"></a>
+            <a href="images/Luxury/1733-RIVER-RUN-PLACE-WLS-16.jpg"><img src="images/Luxury/1733-RIVER-RUN-PLACE-WLS-16-small.jpg" alt="Property Image"></a>
+            <a href="images/Luxury/1733-RIVER-RUN-PLACE-WLS-8.jpg"><img src="images/Luxury/1733-RIVER-RUN-PLACE-WLS-8-small.jpg" alt="Property Image"></a>
+            <a href="images/Luxury/1733-RIVER-RUN-PLACE-WLS-6.jpg"><img src="images/Luxury/1733-RIVER-RUN-PLACE-WLS-6-small.jpg" alt="Property Image"></a>
+            <a href="images/Luxury/1733-RIVER-RUN-PLACE-WLS-9.jpg"><img src="images/Luxury/1733-RIVER-RUN-PLACE-WLS-9-small.jpg" alt="Property Image"></a>
+            <a href="images/Luxury/1733-.jpg"><img src="images/Luxury/1733-small.jpg" alt="Property Image"></a>
+        </div>
+            <div class="property-info">
+                <p>Price: R4,258,897</p>
+                <p>Description: A Modern Luxury located in the city center.</p>
+                <h3>
+                   less than 1 km from Secret Beach, Modern Luxury Villa Olive offers accommodation with sea views, 
+                   free WiFi and free private parking. This villa features air-conditioned accommodation with a terrace. 
+                   The villa has an outdoor pool and a sauna.
+                </h3>
+                <h3>
+                   The spacious villa is fitted with 3 bedrooms, a TV with satellite channels and a fully equipped kitchen 
+                   that provides guests with a dishwasher, an oven, a washing machine, a toaster and a fridge.
+                   Guests can also relax in the garden.
+                </h3>
+                <ul class="amenities">
+                    <ul class="amenities">
+                        <li><i class="fa-solid fa-house"></i>Entire home</li>
+                        <li><i class="fas fa-dumbbell">202 m² size</li>
+                        <li><i class="fa-regular fa-person-swimming"></i>Outdoor swimming pool</li>
+                        <li><i class="fa-regular fa-circle-parking"></i>Free on-site parking</li>
+                        <li><i class="fa-solid fa-paw">Pets allowed</li>
+                        <li><i class="fa-light fa-water">Sea view</li>
+                        <li><i class="fas fa-car">BBQ facilities</li>
+                        <li><i class="fa-sharp fa-solid fa-wifi"></i>Free WiFi</li>
+                        <li><i class="fa-duotone fa-solid fa-fan"></i>Air conditioning</li>
+                        <li><i class="fa-sharp fa-regular fa-oven"></i>Kitchen</li>
+                    </ul>
+                </ul>
+            </div>
+            <section class="agent-section">
+                <h3>Michael Lee</h3>
+                <p>Registered with the PPRA - Full Status FFC</p>
+                <img src="images/agent3.jpeg" alt="Juliet Jooste">
+                <button onclick="whatsappAgent()">WhatsApp me</button>
+                <a href="tel:+1234567890">Show contact numbers</a>
+                <a href="mailto:juliet@example.com">Email me</a>
+                <a href="Agent Profiles.html">View my profile</a>
+             </section> 
+            <div class="property-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.067680168939!2d-122.41941538468143!3d37.774929279758714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858064f8d9627b%3A0x3e4b8c3c7ba5b6a3!2sVrbnik!5e0!3m2!1sen!2sus!4v1595698937484!5m2!1sen!2sus" width="300" height="250" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            </div>
+        <button onclick="contactAgent()">Contact Agent</button>
+    </section>
+
+    <script>
+        // Function to initialize the IndexedDB
+        let db;
+        function initDB() {
+            const request = indexedDB.open("PropertyDB", 1);
+            
+            request.onerror = function (event) {
+                console.log("Database error: " + event.target.errorCode);
+            };
+
+            request.onupgradeneeded = function (event) {
+                db = event.target.result;
+                // Create an objectStore to hold information about properties
+                const objectStore = db.createObjectStore("properties", { keyPath: "id", autoIncrement: true });
+
+                // Define fields to store
+                objectStore.createIndex("title", "title", { unique: false });
+                objectStore.createIndex("price", "price", { unique: false });
+                objectStore.createIndex("description", "description", { unique: false });
+                objectStore.createIndex("agent", "agent", { unique: false });
+                objectStore.createIndex("amenities", "amenities", { unique: false });
+                objectStore.createIndex("gallery", "gallery", { unique: false });
+            };
+            
+            request.onsuccess = function (event) {
+                db = event.target.result;
+                console.log("Database initialized successfully!");
+                // Load initial property into the DB
+                addProperty();
+            };
+        }
+
+        // Function to add property data to the IndexedDB
+        function addProperty() {
+            const transaction = db.transaction(["properties"], "readwrite");
+            const objectStore = transaction.objectStore("properties");
+
+            // Property details object
+            const propertyData = {
+                title: "Luxury Villa",
+                price: "R300,000",
+                description: "This newly constructed duplex has it all, from a heated driveway, smart home technology, a jacuzzi spa...",
+                agent: {
+                    name: "Sarah Johnson",
+                    contact: "tel:+1234567890",
+                    email: "juliet@example.com"
+                },
+                amenities: ["Pool", "Gym", "Garage"],
+                gallery: [
+                    "images/appart/irsf.webp",
+                    "images/appart/feu.webp",
+                    "images/appart/o4h.webp"
+                ]
+            };
+
+            const request = objectStore.add(propertyData);
+
+            request.onsuccess = function (event) {
+                console.log("Property has been added to your database.");
+            };
+
+            request.onerror = function (event) {
+                console.log("Unable to add data\r\n" + event.target.errorCode);
+            };
+        }
+
+        // Function to retrieve and display property data
+        function displayProperty() {
+            const transaction = db.transaction(["properties"], "readonly");
+            const objectStore = transaction.objectStore("properties");
+            
+            const request = objectStore.get(1); // Assuming property with id = 1
+            
+            request.onsuccess = function (event) {
+                const property = request.result;
+                if (property) {
+                    document.getElementById("property-title").textContent = property.title;
+                    document.getElementById("property-price").textContent = property.price;
+                    document.getElementById("property-description").textContent = property.description;
+                    
+                    // Display agent info
+                    document.getElementById("agent-name").textContent = property.agent.name;
+                    document.getElementById("agent-contact").href = property.agent.contact;
+                    document.getElementById("agent-email").href = `mailto:${property.agent.email}`;
+                    
+                    // Display gallery images
+                    const galleryDiv = document.getElementById("gallery");
+                    property.gallery.forEach(image => {
+                        const imgElement = document.createElement("img");
+                        imgElement.src = image;
+                        galleryDiv.appendChild(imgElement);
+                    });
+                } else {
+                    console.log("No property found in the database.");
+                }
+            };
+        }
+
+        // Initialize the DB and add the property on page load
+        window.onload = function() {
+            initDB();
+        };
+    </script>
+</body>
+</html>
